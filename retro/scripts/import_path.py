@@ -16,8 +16,8 @@ def _check_zipfile(f, process_f):
                     process_f(entry.filename, innerf)
 
 
-def main():
-    paths = sys.argv[1:] or ['.']
+def main(default_path: str = None):
+    paths = sys.argv[1:] or ['.'] if default_path is None else [default_path]
     known_hashes = retro.data.get_known_hashes()
 
     imported_games = 0
